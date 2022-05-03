@@ -10,6 +10,7 @@ import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
+import IndexEvents from './components/event/Index'
 
 class App extends Component {
   constructor (props) {
@@ -66,6 +67,14 @@ class App extends Component {
             path='/sign-in'
             render={() => (
               <SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
+            )}
+          />
+          <Route
+            exact
+            user={user}
+            path='/'
+            render={() => (
+              <IndexEvents msgAlert={this.msgAlert} user={user} />
             )}
           />
           <AuthenticatedRoute
