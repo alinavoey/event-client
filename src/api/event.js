@@ -40,3 +40,23 @@ export const deleteEvent = (id, user) => {
     }
   })
 }
+
+export const updateEvent = (data, id, user) => {
+  return axios({
+    method: 'PATCH',
+    url: apiUrl + '/event/' + id,
+    data: {
+      event: {
+        title: data.title,
+        location: data.location,
+        date: data.date,
+        time: data.time,
+        description: data.description
+
+      }
+    },
+    headers: {
+      Authorization: `Bearer ${user.token}`
+    }
+  })
+}
