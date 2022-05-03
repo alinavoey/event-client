@@ -3,20 +3,22 @@ import { withRouter } from 'react-router-dom'
 // API request
 import { updateEvent, showEvent } from '../../api/event'
 // import MovieForm from '../shared/MovieForm'
+import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form'
 
 class UpdateEvent extends Component {
   constructor (props) {
     super(props)
 
     this.state = {
-        title: '',
-        location: '',
-        date: '',
-        time: '',
-        description: '',
-        owner: ''
-      }
+      title: '',
+      location: '',
+      date: '',
+      time: '',
+      description: '',
+      owner: ''
     }
+  }
 
   componentDidMount () {
     // one of the automatic router props we get is the match object - that has data about the params in our front-end route url
@@ -36,22 +38,26 @@ class UpdateEvent extends Component {
       }))
   }
 
-    handleChange = (event) => {
-      // because `this.state.movie` is an object with multiple keys, we have to do some fancy updating
-      const userInput = { [event.target.name]: event.target.value }
-      this.setState(currState => {
-        // "Spread" out current movie state key/value pairs, then add the new one at the end
-        // this will override the old key/value pair in the state but leave the others untouched
-        return { event: { ...currState.event, ...userInput } }
-      })
-    }
+  // handleChange = (event) => {
+  //   // because `this.state.movie` is an object with multiple keys, we have to do some fancy updating
+  //   const userInput = { [event.target.name]: event.target.value }
+  //   this.setState(currState => {
+  //     // "Spread" out current movie state key/value pairs, then add the new one at the end
+  //     // this will override the old key/value pair in the state but leave the others untouched
+  //     return { event: { ...currState.event, ...userInput } }
+  //   })
+  // }
+  handleChange = (event) =>
+    this.setState({
+      [event.target.name]: event.target.value
+    })
 
     handleSubmit = (event) => {
       event.preventDefault()
 
       const { user, msgAlert, history, match } = this.props
 
-      updateEvent(this.state.event, match.params.id, user)
+      updateEvent(this.state, match.params.id, user)
         .then(res => history.push('/events/' + match.params.id))
         .then(() => msgAlert({ heading: 'Event Updated!', message: 'Nice work, go check out your event.', variant: 'success' }))
         .catch(err => {
@@ -121,6 +127,6 @@ class UpdateEvent extends Component {
         </Form>
       )
     }
-  }
+}
 
 export default withRouter(UpdateEvent)
