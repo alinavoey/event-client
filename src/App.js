@@ -13,6 +13,7 @@ import ChangePassword from './components/auth/ChangePassword'
 
 import IndexEvents from './components/event/Index'
 import CreateEvent from './components/event/Create'
+import ShowEvent from './components/event/Show'
 
 class App extends Component {
   constructor (props) {
@@ -77,6 +78,14 @@ class App extends Component {
             path='/'
             render={() => (
               <IndexEvents msgAlert={this.msgAlert} user={user} />
+            )}
+          />
+          <AuthenticatedRoute
+            exact
+            user={user}
+            path='/events/:id'
+            render={() => (
+              <ShowEvent msgAlert={this.msgAlert} user={user} />
             )}
           />
           <AuthenticatedRoute

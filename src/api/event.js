@@ -22,3 +22,21 @@ export const createEvent = (data, user) => {
     }
   })
 }
+export const showEvent = (id, user) => {
+  return axios({
+    method: 'GET',
+    url: apiUrl + '/events/' + id,
+    headers: {
+      Authorization: `Bearer ${user.token}`
+    }
+  })
+}
+export const deleteEvent = (id, user) => {
+  return axios({
+    method: 'DELETE',
+    url: apiUrl + '/events/' + id,
+    headers: {
+      Authorization: `Bearer ${user.token}`
+    }
+  })
+}
