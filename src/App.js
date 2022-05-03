@@ -14,6 +14,7 @@ import ChangePassword from './components/auth/ChangePassword'
 import IndexEvents from './components/event/Index'
 import CreateEvent from './components/event/Create'
 import ShowEvent from './components/event/Show'
+import UpdateEvent from './components/event/Update'
 
 class App extends Component {
   constructor (props) {
@@ -47,75 +48,74 @@ class App extends Component {
     const { msgAlerts, user } = this.state
 
     return (
-      <Fragment>
-	      <Header user={user} />
-	      {msgAlerts.map((msgAlert) => (
-          <AutoDismissAlert
-            key={msgAlert.id}
-            heading={msgAlert.heading}
-            variant={msgAlert.variant}
-            message={msgAlert.message}
-            id={msgAlert.id}
-            deleteAlert={this.deleteAlert}
-          />
-        ))}
-	      <main className='container'>
-	        <Route
-            path='/sign-up'
-            render={() => (
-              <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
-            )}
-          />
-          <Route
-            path='/sign-in'
-            render={() => (
-              <SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
-            )}
-          />
-          <Route
-            exact
-            user={user}
-            path='/'
-            render={() => (
-              <IndexEvents msgAlert={this.msgAlert} user={user} />
-            )}
-          />
-          <AuthenticatedRoute
-            exact
-            user={user}
-            path='/events/:id'
-            render={() => (
-              <ShowEvent msgAlert={this.msgAlert} user={user} />
-            )}
-          />
-          <AuthenticatedRoute
-            user={user}
-            path='/sign-out'
-            render={() => (
-              <SignOut
-                msgAlert={this.msgAlert}
-                clearUser={this.clearUser}
-                user={user}
-              />
-            )}
-          />
-          <AuthenticatedRoute
-            user={user}
-            path='/change-password'
-            render={() => (
-              <ChangePassword msgAlert={this.msgAlert} user={user} />
-            )}
-          />
-          <AuthenticatedRoute
-            user={user}
-            path='/create-event'
-            render={() => (
-              <CreateEvent msgAlert={this.msgAlert} user={user} />
-            )}
-          />
-        </main>
-      </Fragment>
-    )
+			<Fragment>
+				<Header user={user} />
+				{msgAlerts.map((msgAlert) => (
+					<AutoDismissAlert
+						key={msgAlert.id}
+						heading={msgAlert.heading}
+						variant={msgAlert.variant}
+						message={msgAlert.message}
+						id={msgAlert.id}
+						deleteAlert={this.deleteAlert}
+					/>
+				))}
+				<main className='container'>
+					<Route
+						path='/sign-up'
+						render={() => (
+							<SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
+						)}
+					/>
+					<Route
+						path='/sign-in'
+						render={() => (
+							<SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
+						)}
+					/>
+					<Route
+						exact
+						user={user}
+						path='/'
+						render={() => <IndexEvents msgAlert={this.msgAlert} user={user} />}
+					/>
+					<AuthenticatedRoute
+						exact
+						user={user}
+						path='/events/:id'
+						render={() => <ShowEvent msgAlert={this.msgAlert} user={user} />}
+					/>
+					<AuthenticatedRoute
+						user={user}
+						path='/sign-out'
+						render={() => (
+							<SignOut
+								msgAlert={this.msgAlert}
+								clearUser={this.clearUser}
+								user={user}
+							/>
+						)}
+					/>
+					<AuthenticatedRoute
+						user={user}
+						path='/change-password'
+						render={() => (
+							<ChangePassword msgAlert={this.msgAlert} user={user} />
+						)}
+					/>
+					<AuthenticatedRoute
+						user={user}
+						path='/create-event'
+						render={() => <CreateEvent msgAlert={this.msgAlert} user={user} />}
+					/>
+					<AuthenticatedRoute
+						user={user}
+						path='/events/:id/update-event'
+						render={() => <UpdateEvent msgAlert={this.msgAlert} user={user} />}
+					/>
+				</main>
+			</Fragment>
+		)
   }
 }
 
