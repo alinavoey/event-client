@@ -72,7 +72,7 @@ class ShowEvent extends Component {
         {user._id === owner && (
           <>
             <Button onClick={this.handleDelete}>Delete</Button>
-            <Button onClick={() => history.push(`/events/${match.params.id}/edit`)}>Update</Button>
+            <Button onClick={() => history.push(`/events/${match.params.id}/update-event`)}>Update</Button>
           </>
         )}
       </>

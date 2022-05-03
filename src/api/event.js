@@ -44,7 +44,7 @@ export const deleteEvent = (id, user) => {
 export const updateEvent = (data, id, user) => {
   return axios({
     method: 'PATCH',
-    url: apiUrl + '/event/' + id,
+    url: apiUrl + '/events/' + id,
     data: {
       event: {
         title: data.title,
