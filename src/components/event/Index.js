@@ -44,6 +44,17 @@ class IndexEvents extends Component {
     // checking if there are no events in the entire app
     if (events.length === 0) {
       eventsJSX = 'No events, create some so we can gather'
+      // checking if user is not logged-in
+    } if (user === null) {
+      eventsJSX = events.map((event) => (
+        <li key={event._id}>
+          <h6>{event.title}</h6>
+          <Link
+            onClick={(event) => (window.location.href = '/sign-in')}>
+            The {event.title} is happening at {event.location} on {event.date} hosted by {event.owner}
+          </Link>
+        </li>
+      ))
       // checking if userOnly prop is true
     } else if (userOnly) {
       // filtering events then mapping through the event where owner is equal to user id
@@ -58,9 +69,12 @@ class IndexEvents extends Component {
       }
       // mapping through events if userOnly is false
     } else {
-      eventsJSX = events.map(event => (
+      eventsJSX = events.map((event) => (
         <li key={event._id}>
-          <Link to={`/events/${event._id}`}>{event.title}</Link>
+          <Link
+            to={`/events/${event._id}`}>
+            {event.title}
+          </Link>
         </li>
       ))
     }
