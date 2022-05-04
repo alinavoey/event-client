@@ -60,3 +60,19 @@ export const updateEvent = (data, id, user) => {
     }
   })
 }
+
+export const rsvpEvent = (id, userId, user, rsvp) => {
+  return axios({
+    method: 'PATCH',
+    url: apiUrl + '/rsvp/' + id,
+    data: {
+      rsvps: {
+        user: userId,
+        rsvpStatus: rsvp
+      }
+    },
+    headers: {
+      Authorization: `Bearer ${user.token}`
+    }
+  })
+}

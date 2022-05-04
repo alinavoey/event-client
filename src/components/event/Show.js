@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
-import { deleteEvent, showEvent } from '../../api/event'
+import { deleteEvent, showEvent, rsvpEvent } from '../../api/event'
 import Button from 'react-bootstrap/Button'
 
 class ShowEvent extends Component {
@@ -54,13 +54,53 @@ class ShowEvent extends Component {
       })
   }
 
+  handleRsvp = () => {
+    const { match, user, msgAlert } = this.props
+    const { rsvps } = this.state.event
+
+    let isRsvp = false // setting initial rsvpStatus to false
+
+    // filtering through rsvps and grabbing only the rsvp that belongs to the user
+    const myRsvp = rsvps.filter(rsvp => rsvp.user === user._id).pop()
+
+    // checking if myRsvp is defined (if the user has already rsvpd)
+    if (myRsvp) {
+      // then setting isRsvp to the users rsvpStatus (setting it to true)
+      isRsvp = myRsvp.rsvpStatus
+    }
+
+    // checking if rsvp is false then make an api call
+    if (!isRsvp) {
+      rsvpEvent(match.params.id, user._id, user, true)
+        .then(() => {
+          msgAlert({
+            heading: 'Event rsvp success',
+            message: 'Yippie! Success!',
+            variant: 'success'
+          })
+        })
+        .catch(error => {
+          msgAlert({
+            heading: 'Event rsvp failed',
+            message: 'Event rsvp Error: ' + error.message,
+            variant: 'danger'
+          })
+        })
+    } else {
+      console.log('you have already rsvpd')
+    }
+  }
+
   render () {
     if (this.state.event === null) {
       return 'loading...'
     }
     //  add owner back in
-    const { title, location, date, time, description, owner } = this.state.event
+    const { title, location, date, time, description, owner, rsvps } = this.state.event
     const { user, history, match } = this.props
+    const rsvpJSX = rsvps.map(rsvp => (
+      <li key={rsvp._id}>{rsvp.user}</li>
+    ))
     return (
       <>
         <h3>Show an event</h3>
@@ -69,12 +109,16 @@ class ShowEvent extends Component {
         <p>Date: {date}</p>
         <p>Time: {time}</p>
         <p>Description: {description}</p>
+        <p>RSVP:</p>
+        {rsvpJSX}
         {user._id === owner && (
           <>
             <Button onClick={this.handleDelete}>Delete</Button>
             <Button onClick={() => history.push(`/events/${match.params.id}/update-event`)}>Update</Button>
           </>
         )}
+        {/* This button allow anyone to rsvp to an event */}
+        <Button onClick={this.handleRsvp}>RSVP</Button>
       </>
     )
   }
