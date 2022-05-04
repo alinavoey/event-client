@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 
-// import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 // import EventForm from '../shared/EventForm'
 
@@ -31,10 +31,10 @@ class CreateEvent extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
     // add history below to do the push
-    const { user, msgAlert } = this.props
+    const { user, msgAlert, history } = this.props
 
     createEvent(this.state, user)
-      // .then(res => history.push('/events/' + res.data.event._id))
+      .then(res => history.push('/events/' + res.data.event._id))
       .then(() => msgAlert({ heading: 'Event Created!', message: 'Party Time!', variant: 'success' }))
       .catch(err => {
         msgAlert({
@@ -105,4 +105,4 @@ class CreateEvent extends Component {
   }
 }
 // add withRouter() when doing the history push above
-export default CreateEvent
+export default withRouter(CreateEvent)
