@@ -49,8 +49,7 @@ class IndexEvents extends Component {
       eventsJSX = events.map((event) => (
         <li key={event._id}>
           <h6>{event.title}</h6>
-          <Link
-            onClick={(event) => (window.location.href = '/sign-in')}>
+          <Link to={'/sign-in'}>
             The {event.title} is happening at {event.location} on {event.date} hosted by {event.owner}
           </Link>
         </li>
