@@ -113,6 +113,12 @@ class App extends Component {
             path='/events/:id/update-event'
             render={() => <UpdateEvent msgAlert={this.msgAlert} user={user} />}
           />
+          <AuthenticatedRoute
+            user={user}
+            path='/my-events'
+            // userOnly prop used for filtering events that only belong to the user
+            render={() => <IndexEvents msgAlert={this.msgAlert} user={user} userOnly={true} />}
+          />
         </main>
       </Fragment>
     )

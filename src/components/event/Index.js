@@ -34,14 +34,29 @@ class IndexEvents extends Component {
 
   render () {
     const { events } = this.state
+    const { userOnly, user } = this.props
 
     if (events === null) {
       return 'Loading...'
     }
 
     let eventsJSX
+    // checking if there are no events in the entire app
     if (events.length === 0) {
       eventsJSX = 'No events, create some so we can gather'
+      // checking if userOnly prop is true
+    } else if (userOnly) {
+      // filtering events then mapping through the event where owner is equal to user id
+      eventsJSX = events.filter(event => event.owner === user._id).map(event => (
+        <li key={event._id}>
+          <Link to={`/events/${event._id}`}>{event.title}</Link>
+        </li>
+      ))
+      // checking if user has no events
+      if (eventsJSX.length === 0) {
+        eventsJSX = 'You have not created any events, create some so we can gather'
+      }
+      // mapping through events if userOnly is false
     } else {
       eventsJSX = events.map(event => (
         <li key={event._id}>
@@ -52,7 +67,7 @@ class IndexEvents extends Component {
 
     return (
       <>
-        <h3>All the events:</h3>
+        <h3>{userOnly ? 'My events:' : 'All the events:'}</h3>
         <ul>
           {eventsJSX}
         </ul>
