@@ -78,7 +78,7 @@ class UpdateEvent extends Component {
               required
               name='title'
               value={this.state.title}
-              placeholder='Event title'
+              placeholder={this.state.event?.title}
               onChange={this.handleChange}
             />
           </Form.Group>
@@ -88,7 +88,7 @@ class UpdateEvent extends Component {
               required
               name='location'
               value={this.state.location}
-              placeholder='Event Location'
+              placeholder={this.state.event?.location}
               onChange={this.handleChange}
             />
           </Form.Group>
@@ -99,7 +99,7 @@ class UpdateEvent extends Component {
               name='date'
               type='date'
               value={this.state.date}
-              placeholder='Event Date'
+              placeholder={this.state.event?.date}
               onChange={this.handleChange}
             />
           </Form.Group>
@@ -109,7 +109,7 @@ class UpdateEvent extends Component {
               required
               name='time'
               value={this.state.time}
-              placeholder='Event Time'
+              placeholder={this.state.event?.time}
               onChange={this.handleChange}
             />
           </Form.Group>
@@ -119,7 +119,7 @@ class UpdateEvent extends Component {
               required
               name='description'
               value={this.state.description}
-              placeholder='Event Description'
+              placeholder={this.state.event?.description}
               onChange={this.handleChange}
             />
           </Form.Group>
