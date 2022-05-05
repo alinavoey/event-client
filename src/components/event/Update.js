@@ -71,60 +71,69 @@ class UpdateEvent extends Component {
 
     render () {
       return (
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Group controlId='title'>
-            <Form.Label>Event Title</Form.Label>
-            <Form.Control
-              required
-              name='title'
-              value={this.state.title}
-              placeholder={this.state.event?.title}
-              onChange={this.handleChange}
-            />
-          </Form.Group>
-          <Form.Group controlId='location'>
-            <Form.Label>Location</Form.Label>
-            <Form.Control
-              required
-              name='location'
-              value={this.state.location}
-              placeholder={this.state.event?.location}
-              onChange={this.handleChange}
-            />
-          </Form.Group>
-          <Form.Group controlId='date'>
-            <Form.Label>Date</Form.Label>
-            <Form.Control
-              required
-              name='date'
-              type='date'
-              value={this.state.date}
-              placeholder={this.state.event?.date}
-              onChange={this.handleChange}
-            />
-          </Form.Group>
-          <Form.Group controlId='time'>
-            <Form.Label>Time</Form.Label>
-            <Form.Control
-              required
-              name='time'
-              value={this.state.time}
-              placeholder={this.state.event?.time}
-              onChange={this.handleChange}
-            />
-          </Form.Group>
-          <Form.Group controlId='description'>
-            <Form.Label>Description</Form.Label>
-            <Form.Control
-              required
-              name='description'
-              value={this.state.description}
-              placeholder={this.state.event?.description}
-              onChange={this.handleChange}
-            />
-          </Form.Group>
-          <Button type='submit'>Submit</Button>
-        </Form>
+        <>
+          <div className='form-box'>
+            <div className='row'>
+              <div className='col-sm-10 col-md-8 mx-auto mt-5'>
+                <h3 className='page-title'>Update Event</h3>
+                <Form onSubmit={this.handleSubmit}>
+                  <Form.Group controlId='title'>
+                    <Form.Label>Event Title</Form.Label>
+                    <Form.Control
+                      required
+                      name='title'
+                      value={this.state.title}
+                      placeholder={this.state.event?.title}
+                      onChange={this.handleChange}
+                    />
+                  </Form.Group>
+                  <Form.Group controlId='location'>
+                    <Form.Label>Location</Form.Label>
+                    <Form.Control
+                      required
+                      name='location'
+                      value={this.state.location}
+                      placeholder={this.state.event?.location}
+                      onChange={this.handleChange}
+                    />
+                  </Form.Group>
+                  <Form.Group controlId='date'>
+                    <Form.Label>Date</Form.Label>
+                    <Form.Control
+                      required
+                      name='date'
+                      type='date'
+                      value={this.state.date}
+                      placeholder={this.state.event?.date}
+                      onChange={this.handleChange}
+                    />
+                  </Form.Group>
+                  <Form.Group controlId='time'>
+                    <Form.Label>Time</Form.Label>
+                    <Form.Control
+                      required
+                      name='time'
+                      value={this.state.time}
+                      placeholder={this.state.event?.time}
+                      onChange={this.handleChange}
+                    />
+                  </Form.Group>
+                  <Form.Group controlId='description'>
+                    <Form.Label>Description</Form.Label>
+                    <Form.Control
+                      required
+                      name='description'
+                      value={this.state.description}
+                      placeholder={this.state.event?.description}
+                      onChange={this.handleChange}
+                    />
+                  </Form.Group>
+                  <Button type='submit'>Submit</Button>
+                </Form>
+              </div>
+            </div>
+          </div>
+        </>
       )
     }
 }

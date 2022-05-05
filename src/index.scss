@@ -1,1 +1,105 @@
 @import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Chicle&family=My+Soul&display=swap');
+
+body {
+    background-image: url('https://marketplace.canva.com/EAEthkBVLfQ/1/0/1600w/canva-blush-wave-desktop-wallpaper-drvq3zaYl2E.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.main-content{
+    margin-top: 0;
+    background-color: whitesmoke;
+    padding: 20px 40px;
+}
+.gather-style {
+    color: white;
+    margin: 0 50px;
+    letter-spacing: 10px;
+    font-family: 'Bad Script', cursive;
+    font-weight: bolder;
+    font-size: 30px
+}
+
+a {
+    text-decoration: none;
+}
+.nav-link {
+    letter-spacing: 2px;
+    margin: 0 20px;
+}
+
+.event-link {
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #ffa970;
+}
+
+.event-link:hover {
+    color: #f4845f;
+}
+
+.page-title {
+    padding: 20px 0;
+    color: #46494c;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    margin: 30px 0;
+    text-align: center;
+    border-bottom: 1px solid #64b6ac
+}
+
+form label{
+    letter-spacing: 2px;
+}
+
+.btn-primary {
+    padding: 14px 30px;
+    margin: 20px 5px;
+    background-color: #87986a;
+    border: none;
+}
+.btn-primary:hover{
+    background-color: #b5c99a;
+}
+.event-title{
+    width: 50%;
+    background-color:#eeeeee;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    text-align: center;
+    margin: auto;
+    margin-top: 5%;
+    padding: 2% 0;
+    border: 1px solid #dcdcdd;
+}
+
+.event-details {
+    border: 1px solid #dcdcdd;
+    background-color: whitesmoke;
+    margin: auto;
+    width: 50%;
+    padding: 4%;
+}
+.event-details-title{
+    text-decoration: underline;
+    letter-spacing: 2px;
+}
+
+.hero-img{
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    margin-bottom: 0;
+}
+
+.form-box {
+    border: 1px solid #dcdcdd;
+    background-color: whitesmoke;
+    margin: auto;
+    width: 60%;
+    padding: 2%;
+    margin-top: 5%;
+}

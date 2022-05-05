@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import '../../index.scss'
+import moment from 'moment'
 
 class IndexEvents extends Component {
   constructor (props) {
@@ -54,6 +56,7 @@ class IndexEvents extends Component {
           <Card border="secondary">
             <Card.Header>
               <Link
+                className='event-link'
                 to={'/sign-in'}>
                 {event.title}
               </Link>
@@ -63,7 +66,7 @@ class IndexEvents extends Component {
                 {event.location}
               </Card.Title>
               <Card.Subtitle>
-                {event.date} at {event.time}
+                {moment(event.date).format('MMMM Do YYYY')} at {event.time}
               </Card.Subtitle>
               <Card.Text>
                 {event.rsvps.length} people attending
@@ -80,6 +83,7 @@ class IndexEvents extends Component {
           <Card border="secondary">
             <Card.Header>
               <Link
+                className='event-link'
                 to={`/events/${event._id}`}>
                 {event.title}
               </Link>
@@ -89,7 +93,7 @@ class IndexEvents extends Component {
                 {event.location}
               </Card.Title>
               <Card.Subtitle>
-                {event.date} at {event.time}
+                {moment(event.date).format('MMMM Do YYYY')} at {event.time}
               </Card.Subtitle>
               <Card.Text>
                 {event.rsvps.length} people attending
@@ -109,6 +113,7 @@ class IndexEvents extends Component {
           <Card border="secondary">
             <Card.Header>
               <Link
+                className='event-link'
                 to={`/events/${event._id}`}>
                 {event.title}
               </Link>
@@ -118,7 +123,7 @@ class IndexEvents extends Component {
                 {event.location}
               </Card.Title>
               <Card.Subtitle>
-                {event.date} at {event.time}
+                {moment(event.date).format('MMMM Do YYYY')} at {event.time}
               </Card.Subtitle>
               <Card.Text>
                 {event.rsvps.length} people attending
@@ -131,10 +136,13 @@ class IndexEvents extends Component {
 
     return (
       <>
-        <h3>{userOnly ? 'My events:' : 'All the events:'}</h3>
-        <Row xs={1} md={3} className="g-4">
-          {eventsJSX}
-        </Row>
+        <div className='hero'><img className='hero-img' src={process.env.PUBLIC_URL + '/hero1.jpg'}/></div>
+        <div className='main-content'>
+          <h3 className='page-title'>{userOnly ? 'My Gatherings' : 'Current Gatherings'}</h3>
+          <Row xs={1} md={3} className="g-4">
+            {eventsJSX}
+          </Row>
+        </div>
       </>
     )
   }
