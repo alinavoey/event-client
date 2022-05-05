@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/Toadal-OverREACTorz/event-client/static/css/main.432dfbff.chunk.css",
-    "main.js": "/Toadal-OverREACTorz/event-client/static/js/main.0c8f7831.chunk.js",
-    "main.js.map": "/Toadal-OverREACTorz/event-client/static/js/main.0c8f7831.chunk.js.map",
-    "runtime-main.js": "/Toadal-OverREACTorz/event-client/static/js/runtime-main.2623295c.js",
-    "runtime-main.js.map": "/Toadal-OverREACTorz/event-client/static/js/runtime-main.2623295c.js.map",
-    "static/js/2.6228abe2.chunk.js": "/Toadal-OverREACTorz/event-client/static/js/2.6228abe2.chunk.js",
-    "static/js/2.6228abe2.chunk.js.map": "/Toadal-OverREACTorz/event-client/static/js/2.6228abe2.chunk.js.map",
-    "index.html": "/Toadal-OverREACTorz/event-client/index.html",
-    "static/css/main.432dfbff.chunk.css.map": "/Toadal-OverREACTorz/event-client/static/css/main.432dfbff.chunk.css.map",
-    "static/js/2.6228abe2.chunk.js.LICENSE.txt": "/Toadal-OverREACTorz/event-client/static/js/2.6228abe2.chunk.js.LICENSE.txt"
+    "main.css": "/event-client/static/css/main.432dfbff.chunk.css",
+    "main.js": "/event-client/static/js/main.9bff4c7c.chunk.js",
+    "main.js.map": "/event-client/static/js/main.9bff4c7c.chunk.js.map",
+    "runtime-main.js": "/event-client/static/js/runtime-main.fb298eec.js",
+    "runtime-main.js.map": "/event-client/static/js/runtime-main.fb298eec.js.map",
+    "static/js/2.6228abe2.chunk.js": "/event-client/static/js/2.6228abe2.chunk.js",
+    "static/js/2.6228abe2.chunk.js.map": "/event-client/static/js/2.6228abe2.chunk.js.map",
+    "index.html": "/event-client/index.html",
+    "static/css/main.432dfbff.chunk.css.map": "/event-client/static/css/main.432dfbff.chunk.css.map",
+    "static/js/2.6228abe2.chunk.js.LICENSE.txt": "/event-client/static/js/2.6228abe2.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.2623295c.js",
+    "static/js/runtime-main.fb298eec.js",
     "static/js/2.6228abe2.chunk.js",
     "static/css/main.432dfbff.chunk.css",
-    "static/js/main.0c8f7831.chunk.js"
+    "static/js/main.9bff4c7c.chunk.js"
   ]
 }
