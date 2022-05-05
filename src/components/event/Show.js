@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { deleteEvent, showEvent, rsvpEvent } from '../../api/event'
 import Button from 'react-bootstrap/Button'
+import moment from 'moment'
 
 class ShowEvent extends Component {
   constructor (props) {
@@ -109,22 +110,25 @@ class ShowEvent extends Component {
 
     return (
       <>
-        <h3>Show an event</h3>
-        <h4>{title}</h4>
-        <p>Location: {location}</p>
-        <p>Date: {date}</p>
-        <p>Time: {time}</p>
-        <p>Description: {description}</p>
-        <p>RSVP:</p>
-        {rsvpJSX}
-        {user._id === owner && (
-          <>
-            <Button onClick={this.handleDelete}>Delete</Button>
-            <Button onClick={() => history.push(`/events/${match.params.id}/update-event`)}>Update</Button>
-          </>
-        )}
-        {/* This button allow anyone to rsvp to an event */}
-        <Button onClick={this.handleRsvp}>RSVP</Button>
+        <h3 className='event-title'>{title}</h3>
+        <div className='event-details'>
+          <h6 className='event-details-title'>Where:</h6>
+          <p className='event-details-info'> {location}</p>
+          <h6 className='event-details-title'>When:</h6>
+          <p className='event-details-info'>{moment(date).format('MMMM Do YYYY')} at {time}</p>
+          <h6 className='event-details-title'>Desciption:</h6>
+          <p className='event-details-info'>{description}</p>
+          <h6 className='event-details-title'>RSVP:</h6>
+          {rsvpJSX}
+          {user._id === owner && (
+            <>
+              <Button onClick={this.handleDelete}>Delete</Button>
+              <Button onClick={() => history.push(`/events/${match.params.id}/update-event`)}>Update</Button>
+            </>
+          )}
+          {/* This button allow anyone to rsvp to an event */}
+          <Button onClick={this.handleRsvp}>RSVP</Button>
+        </div>
       </>
     )
   }
