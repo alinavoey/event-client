@@ -72,6 +72,7 @@ class ShowEvent extends Component {
     // checking if rsvp is false then make an api call
     if (!isRsvp) {
       rsvpEvent(match.params.id, user._id, user, true)
+        .then(() => this.componentDidMount())
         .then(() => {
           msgAlert({
             heading: 'Event rsvp success',
@@ -87,7 +88,11 @@ class ShowEvent extends Component {
           })
         })
     } else {
-      console.log('you have already rsvpd')
+      msgAlert({
+        heading: 'Oops!',
+        message: 'Looks like you are already rsvpd',
+        variant: 'warning'
+      })
     }
   }
 
@@ -101,6 +106,7 @@ class ShowEvent extends Component {
     const rsvpJSX = rsvps.map(rsvp => (
       <li key={rsvp._id}>{rsvp.user}</li>
     ))
+
     return (
       <>
         <h3>Show an event</h3>

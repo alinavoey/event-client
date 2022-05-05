@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { indexEvents } from '../../api/event'
 import { Link } from 'react-router-dom'
+import Card from 'react-bootstrap/Card'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 class IndexEvents extends Component {
   constructor (props) {
@@ -47,20 +50,53 @@ class IndexEvents extends Component {
       // checking if user is not logged-in
     } if (user === null) {
       eventsJSX = events.map((event) => (
-        <li key={event._id}>
-          <h6>{event.title}</h6>
-          <Link to={'/sign-in'}>
-            The {event.title} is happening at {event.location} on {event.date} hosted by {event.owner}
-          </Link>
-        </li>
+        <Col key={event._id}>
+          <Card border="secondary">
+            <Card.Header>
+              <Link
+                to={'/sign-in'}>
+                {event.title}
+              </Link>
+            </Card.Header>
+            <Card.Body>
+              <Card.Title>
+                {event.location}
+              </Card.Title>
+              <Card.Subtitle>
+                {event.date} at {event.time}
+              </Card.Subtitle>
+              <Card.Text>
+                {event.rsvps.length} people attending
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
       ))
       // checking if userOnly prop is true
     } else if (userOnly) {
       // filtering events then mapping through the event where owner is equal to user id
       eventsJSX = events.filter(event => event.owner === user._id).map(event => (
-        <li key={event._id}>
-          <Link to={`/events/${event._id}`}>{event.title}</Link>
-        </li>
+        <Col key={event._id}>
+          <Card border="secondary">
+            <Card.Header>
+              <Link
+                to={`/events/${event._id}`}>
+                {event.title}
+              </Link>
+            </Card.Header>
+            <Card.Body>
+              <Card.Title>
+                {event.location}
+              </Card.Title>
+              <Card.Subtitle>
+                {event.date} at {event.time}
+              </Card.Subtitle>
+              <Card.Text>
+                {event.rsvps.length} people attending
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
       ))
       // checking if user has no events
       if (eventsJSX.length === 0) {
@@ -69,21 +105,36 @@ class IndexEvents extends Component {
       // mapping through events if userOnly is false
     } else {
       eventsJSX = events.map((event) => (
-        <li key={event._id}>
-          <Link
-            to={`/events/${event._id}`}>
-            {event.title}
-          </Link>
-        </li>
+        <Col key={event._id}>
+          <Card border="secondary">
+            <Card.Header>
+              <Link
+                to={`/events/${event._id}`}>
+                {event.title}
+              </Link>
+            </Card.Header>
+            <Card.Body>
+              <Card.Title>
+                {event.location}
+              </Card.Title>
+              <Card.Subtitle>
+                {event.date} at {event.time}
+              </Card.Subtitle>
+              <Card.Text>
+                {event.rsvps.length} people attending
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
       ))
     }
 
     return (
       <>
         <h3>{userOnly ? 'My events:' : 'All the events:'}</h3>
-        <ul>
+        <Row xs={1} md={3} className="g-4">
           {eventsJSX}
-        </ul>
+        </Row>
       </>
     )
   }
