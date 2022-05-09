@@ -34,7 +34,7 @@ In the planning of this application, a wireframe was needed to help visualize th
 - Trello
 - Agile Scrum
 
-# Unsolved Problems for Future Iterations
+## Unsolved Problems for Future Iterations
 * Date will be based off user timezone instead of UTC
 * Allow users to cancel their RSVP status
 * Allow users to share an event
