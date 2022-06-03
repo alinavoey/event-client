@@ -115,7 +115,7 @@ class ShowEvent extends Component {
           <h6 className='event-details-title'>Where:</h6>
           <p className='event-details-info'> {location}</p>
           <h6 className='event-details-title'>When:</h6>
-          <p className='event-details-info'>{moment(date).format('MMMM Do YYYY')} at {time}</p>
+          <p className='event-details-info'>{moment(date).utc().format('LL')} at {time}</p>
           <h6 className='event-details-title'>Desciption:</h6>
           <p className='event-details-info'>{description}</p>
           <h6 className='event-details-title'>RSVP:</h6>

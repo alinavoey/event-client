@@ -21,13 +21,13 @@ class IndexEvents extends Component {
 
     indexEvents(user)
       .then((res) => this.setState({ events: res.data.events }))
-      .then(() => {
-        msgAlert({
-          heading: 'Index Success',
-          message: 'Yippie indexed!',
-          variant: 'success'
-        })
-      })
+      // .then(() => {
+      //   msgAlert({
+      //     heading: 'Index Success',
+      //     message: 'Yippie indexed!',
+      //     variant: 'success'
+      //   })
+      // })
       .catch(error => {
         msgAlert({
           heading: 'Index Failed',
@@ -66,7 +66,7 @@ class IndexEvents extends Component {
                 {event.location}
               </Card.Title>
               <Card.Subtitle>
-                {moment(event.date).format('MMMM Do YYYY')} at {event.time}
+                {moment(event.date).utc().format('LL')} at {event.time}
               </Card.Subtitle>
               <Card.Text>
                 {event.rsvps.length} people attending
@@ -93,7 +93,7 @@ class IndexEvents extends Component {
                 {event.location}
               </Card.Title>
               <Card.Subtitle>
-                {moment(event.date).format('MMMM Do YYYY')} at {event.time}
+                {moment(event.date).utc().format('LL')} at {event.time}
               </Card.Subtitle>
               <Card.Text>
                 {event.rsvps.length} people attending
@@ -123,7 +123,7 @@ class IndexEvents extends Component {
                 {event.location}
               </Card.Title>
               <Card.Subtitle>
-                {moment(event.date).format('MMMM Do YYYY')} at {event.time}
+                {moment(event.date).utc().format('LL')} at {event.time}
               </Card.Subtitle>
               <Card.Text>
                 {event.rsvps.length} people attending

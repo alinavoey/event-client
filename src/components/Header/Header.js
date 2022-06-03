@@ -27,7 +27,7 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-  <Navbar className='navbar-style' style={{ backgroundColor: '#64b6ac' }} variant='dark' expand='md'>
+  <Navbar className='navbar-style' variant='dark' expand='md'>
     <Navbar.Brand>
       <Link to='/'><span className='gather-style'>Gather</span></Link>
     </Navbar.Brand>

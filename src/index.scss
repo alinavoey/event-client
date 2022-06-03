@@ -1,10 +1,13 @@
 @import '~bootstrap/scss/bootstrap';
-@import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Chicle&family=My+Soul&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Chicle&family=My+Soul&display=swap');
 
 body {
     background-image: url('https://marketplace.canva.com/EAEthkBVLfQ/1/0/1600w/canva-blush-wave-desktop-wallpaper-drvq3zaYl2E.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+    width: inherit;
 }
 .main-content{
     margin-top: 0;
@@ -13,11 +16,12 @@ body {
 }
 .gather-style {
     color: white;
-    margin: 0 50px;
+    margin: 0 40px;
     letter-spacing: 10px;
-    font-family: 'Bad Script', cursive;
-    font-weight: bolder;
-    font-size: 30px
+    // font-family: 'Bad Script', cursive;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 25px
 }
 
 a {
@@ -25,7 +29,14 @@ a {
 }
 .nav-link {
     letter-spacing: 2px;
-    margin: 0 20px;
+    margin: 0 10px;
+    font-size: 15px;
+}
+
+.navbar{
+    padding: 0;
+    background-color: #e9a999;
+    // background-color: #9bac7e;
 }
 
 .event-link {
@@ -44,9 +55,9 @@ a {
     color: #46494c;
     text-transform: uppercase;
     letter-spacing: 6px;
-    margin: 30px 0;
+    margin: 30px 100px;
     text-align: center;
-    border-bottom: 1px solid #64b6ac
+    border-bottom: 1px solid #46494c;
 }
 
 form label{
@@ -61,7 +72,13 @@ form label{
 }
 .btn-primary:hover{
     background-color: #b5c99a;
+    border: none;
 }
+
+.btn-primary:focus{
+    background-color: #b5c99a;
+}
+
 .event-title{
     width: 50%;
     background-color:#eeeeee;
@@ -102,4 +119,55 @@ form label{
     width: 60%;
     padding: 2%;
     margin-top: 5%;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .navbar-dark .navbar-toggler {
+        margin: 5px 10px;
+        border: none;
+    }
+
+    .navbar-toggler:focus{
+        box-shadow: none;
+    }
+
+    .gather-style {
+        margin: 0 20px;
+        font-size: 20px
+    }
+    .page-title {
+        font-size: 18px;
+        padding-top: 0;
+        padding-bottom: 10px;
+        margin-top: 0;
+        margin-bottom: 40px ;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .form-box {
+        border-radius: 5px;
+        width: 90%;
+        padding: 0 5%;
+        margin-top: 10%;
+    }
+
+    .event-title{
+        width: 90%;
+        margin-top: 10%;
+        padding: 5%;
+    }
+    
+    .event-details {
+        border: 1px solid #dcdcdd;
+        background-color: whitesmoke;
+        margin: auto;
+        width: 90%;
+        padding: 5%;
+    }
+
+    .event-details button{
+        padding: 5px 10px;
+    }
 }
