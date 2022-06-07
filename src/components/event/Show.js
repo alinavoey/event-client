@@ -18,13 +18,6 @@ class ShowEvent extends Component {
 
     showEvent(match.params.id, user)
       .then(res => this.setState({ event: res.data.event }))
-      .then(() => {
-        msgAlert({
-          heading: 'Show event success',
-          message: 'Yippie! Success!',
-          variant: 'success'
-        })
-      })
       .catch(error => {
         msgAlert({
           heading: 'Show event failed',
@@ -59,10 +52,12 @@ class ShowEvent extends Component {
     const { match, user, msgAlert } = this.props
     const { rsvps } = this.state.event
 
+    console.log(user)
+
     let isRsvp = false // setting initial rsvpStatus to false
 
     // filtering through rsvps and grabbing only the rsvp that belongs to the user
-    const myRsvp = rsvps.filter(rsvp => rsvp.user === user._id).pop()
+    const myRsvp = rsvps.filter(rsvp => rsvp.user._id === user._id).pop()
 
     // checking if myRsvp is defined (if the user has already rsvpd)
     if (myRsvp) {
@@ -72,7 +67,7 @@ class ShowEvent extends Component {
 
     // checking if rsvp is false then make an api call
     if (!isRsvp) {
-      rsvpEvent(match.params.id, user._id, user, true)
+      rsvpEvent(match.params.id, user, true)
         .then(() => this.componentDidMount())
         .then(() => {
           msgAlert({
@@ -105,7 +100,7 @@ class ShowEvent extends Component {
     const { title, location, date, time, description, owner, rsvps } = this.state.event
     const { user, history, match } = this.props
     const rsvpJSX = rsvps.map(rsvp => (
-      <li key={rsvp._id}>{rsvp.user}</li>
+      <li key={rsvp._id}>{rsvp.user.email}</li>
     ))
 
     return (

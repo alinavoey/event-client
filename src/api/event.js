@@ -61,13 +61,13 @@ export const updateEvent = (data, id, user) => {
   })
 }
 
-export const rsvpEvent = (id, userId, user, rsvp) => {
+export const rsvpEvent = (id, user, rsvp) => {
   return axios({
     method: 'PATCH',
     url: apiUrl + '/rsvp/' + id,
     data: {
       rsvps: {
-        user: userId,
+        user: user._id,
         rsvpStatus: rsvp
       }
     },
