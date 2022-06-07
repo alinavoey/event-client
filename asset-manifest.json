@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/event-client/static/css/main.a297f402.chunk.css",
-    "main.js": "/event-client/static/js/main.e4b323d5.chunk.js",
-    "main.js.map": "/event-client/static/js/main.e4b323d5.chunk.js.map",
+    "main.css": "/event-client/static/css/main.ce868fda.chunk.css",
+    "main.js": "/event-client/static/js/main.e23acf07.chunk.js",
+    "main.js.map": "/event-client/static/js/main.e23acf07.chunk.js.map",
     "runtime-main.js": "/event-client/static/js/runtime-main.fb298eec.js",
     "runtime-main.js.map": "/event-client/static/js/runtime-main.fb298eec.js.map",
-    "static/js/2.a59ecd3b.chunk.js": "/event-client/static/js/2.a59ecd3b.chunk.js",
-    "static/js/2.a59ecd3b.chunk.js.map": "/event-client/static/js/2.a59ecd3b.chunk.js.map",
+    "static/js/2.0ed050c8.chunk.js": "/event-client/static/js/2.0ed050c8.chunk.js",
+    "static/js/2.0ed050c8.chunk.js.map": "/event-client/static/js/2.0ed050c8.chunk.js.map",
     "index.html": "/event-client/index.html",
-    "static/css/main.a297f402.chunk.css.map": "/event-client/static/css/main.a297f402.chunk.css.map",
-    "static/js/2.a59ecd3b.chunk.js.LICENSE.txt": "/event-client/static/js/2.a59ecd3b.chunk.js.LICENSE.txt"
+    "static/css/main.ce868fda.chunk.css.map": "/event-client/static/css/main.ce868fda.chunk.css.map",
+    "static/js/2.0ed050c8.chunk.js.LICENSE.txt": "/event-client/static/js/2.0ed050c8.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.fb298eec.js",
-    "static/js/2.a59ecd3b.chunk.js",
-    "static/css/main.a297f402.chunk.css",
-    "static/js/main.e4b323d5.chunk.js"
+    "static/js/2.0ed050c8.chunk.js",
+    "static/css/main.ce868fda.chunk.css",
+    "static/js/main.e23acf07.chunk.js"
   ]
 }
