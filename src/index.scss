@@ -31,6 +31,12 @@ a {
     letter-spacing: 2px;
     margin: 0 10px;
     font-size: 15px;
+    border-bottom: 4px solid #e9a999;
+    padding: 5px 0;
+}
+
+.nav-link:hover, .nav-link:focus{
+    border-bottom: 4px solid white;
 }
 
 .navbar{
